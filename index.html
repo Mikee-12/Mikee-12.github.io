@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mike — Portfolio</title>
+  <title>Mike</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
@@ -110,75 +110,90 @@
     .section-sub { color:var(--txt2); max-width:480px; font-size:.98rem; }
     .divider { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--line2),transparent); }
 
-    /* ABOUT — smaller image */
+    /* ABOUT */
     #about { background:var(--bg2); }
-    .about-grid { display:grid; grid-template-columns:260px 1fr; gap:4rem; align-items:center; margin-top:3rem; }
-    .about-img-wrap { position:relative; width:100%; }
-    .about-img-placeholder { width:100%; aspect-ratio:3/4; border-radius:var(--r); background:linear-gradient(145deg,var(--bg3) 0%,var(--bg4) 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.75rem; color:var(--txt2); border:1px solid var(--line2); position:relative; overflow:hidden; }
-    .about-img-placeholder::before { content:'';position:absolute;inset:0; background:radial-gradient(circle at 55% 25%,rgba(26,15,212,.12),transparent 65%); }
+    .about-top { display: grid; grid-template-columns: 220px 1fr; gap: 3.5rem; align-items: start; margin-bottom: 0; }
+    .about-img-wrap { position: relative; width: 100%; }
+    .about-img-placeholder { width:100%; aspect-ratio:3/4; border-radius:var(--r); background:linear-gradient(145deg,var(--bg3),var(--bg4)); display:flex; align-items:center; justify-content:center; border:1px solid var(--line2); position:relative; overflow:hidden; }
+    .about-img-placeholder::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 55% 25%,rgba(26,15,212,.12),transparent 65%); }
     .about-img-placeholder img.profile-img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; border-radius:var(--r); }
-    .avatar-icon { font-size:3rem; position:relative; z-index:1; }
-    .about-img-placeholder > span { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; position:relative; z-index:1; }
-    .about-frame { position:absolute; bottom:-12px; right:-12px; width:calc(100% - 24px); height:calc(100% - 24px); border:2px solid rgba(61,95,255,.18); border-radius:var(--r); z-index:-1; }
-    .about-text p { color:var(--txt2); margin-bottom:1.2rem; }
+    .about-frame { position:absolute; bottom:-10px; right:-10px; width:calc(100% - 20px); height:calc(100% - 20px); border:1.5px solid rgba(61,95,255,.18); border-radius:var(--r); z-index:-1; }
+    .about-text p { color:var(--txt2); margin-bottom:.8rem; }
+    .about-divider { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--line2),transparent); margin:2.5rem 0; }
+    .about-split { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .about-skill-card { border-radius:var(--r); border:1px solid var(--line2); padding:1.5rem; position:relative; overflow:hidden; }
+    .about-skill-dev { background:linear-gradient(145deg,rgba(26,15,212,.08),rgba(6,6,10,.4)); }
+    .about-skill-media { background:linear-gradient(145deg,rgba(61,95,255,.06),rgba(6,6,10,.4)); }
+    .ask-accent { position:absolute; top:0; left:0; width:3px; height:100%; border-radius:var(--r) 0 0 var(--r); }
+    .about-skill-dev .ask-accent { background:var(--accent); }
+    .about-skill-media .ask-accent { background:var(--accent2); }
+    .ask-header { display:flex; align-items:center; gap:.65rem; margin-bottom:1rem; }
+    .ask-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .about-skill-dev .ask-icon { background:rgba(26,15,212,.2); }
+    .about-skill-media .ask-icon { background:rgba(61,95,255,.15); }
+    .ask-title { font-family:'Syne',sans-serif; font-weight:700; font-size:.95rem; color:var(--txt); }
+    .ask-years { font-size:.72rem; color:var(--hi); font-weight:600; letter-spacing:.04em; }
+    .ask-desc { font-size:.82rem; color:var(--txt2); line-height:1.65; margin-bottom:1.1rem; }
     .skills-grid { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.8rem; margin-bottom:1.4rem; }
     .skill-tag { background:var(--bg4); border:1px solid rgba(61,95,255,.18); border-radius:6px; padding:.3rem .8rem; font-size:.78rem; color:var(--txt2); font-weight:500; transition:border-color .2s,color .2s; }
     .skill-tag:hover { border-color:var(--hi); color:var(--hi); }
+    .skill-tag.active { border-color:rgba(26,15,212,.35); color:var(--hi); background:rgba(26,15,212,.1); }
 
     /* PROJECTS */
     .projects-header { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem; margin-bottom:3rem; }
     .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
-.project-card { 
-  background:var(--bg2); 
-  border:1px solid var(--line); 
-  border-radius:var(--r); 
-  overflow:hidden; 
-  transition:transform .3s,border-color .3s,box-shadow .3s; 
-  cursor:pointer;
-  display:flex;
-  flex-direction:column;
-}    .project-card:hover { transform:translateY(-6px); border-color:rgba(61,95,255,.3); box-shadow:0 20px 60px rgba(0,0,20,.7),0 0 0 1px rgba(61,95,255,.1); }
-.card-thumb {
-  position: relative;
-  overflow: hidden;
-  height: 220px; /* bebas */
-  border-radius: 10px;
-}
-
-.card-thumb-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.card-thumb-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-}
-
-.card-thumb-label,
-.card-thumb-num {
-  position: absolute;
-  z-index: 2;
-  color: white;
-}    .card-thumb-label { font-family:'Syne',sans-serif; font-size:2.5rem; font-weight:800; color:rgba(255,255,255,.03); letter-spacing:-.04em; user-select:none; }
+    .project-card {
+      background:var(--bg2);
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      overflow:hidden;
+      transition:transform .3s,border-color .3s,box-shadow .3s;
+      cursor:pointer;
+      display:flex;
+      flex-direction:column;
+    }
+    .project-card:hover { transform:translateY(-6px); border-color:rgba(61,95,255,.3); box-shadow:0 20px 60px rgba(0,0,20,.7),0 0 0 1px rgba(61,95,255,.1); }
+    .card-thumb {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+      border-radius: 10px;
+    }
+    .card-thumb-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+    .card-thumb-label,
+    .card-thumb-num {
+      position: absolute;
+      z-index: 2;
+      color: white;
+    }
+    .card-thumb-label { font-family:'Syne',sans-serif; font-size:2.5rem; font-weight:800; color:rgba(255,255,255,.03); letter-spacing:-.04em; user-select:none; }
     .card-thumb-overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(26,15,212,.1) 0%,transparent 60%); }
     .card-thumb-num { position:absolute; top:1rem; left:1rem; font-family:'Syne',sans-serif; font-size:.72rem; font-weight:700; color:var(--hi); letter-spacing:.1em; }
-.card-body { padding:1.25rem 1.5rem 1.5rem; flex:1; }    .card-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.9rem; }
+    .card-body { padding:1.25rem 1.5rem 1.5rem; flex:1; }
+    .card-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.9rem; }
     .card-tag { font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; padding:.2rem .55rem; border-radius:4px; background:rgba(26,15,212,.15); color:var(--hi); }
     .card-tag.alt { background:rgba(61,95,255,.12); color:var(--accent2); }
     .card-title { font-family:'Syne',sans-serif; font-weight:700; font-size:1.12rem; letter-spacing:-0.02em; margin-bottom:.5rem; color:var(--txt); }
     .card-desc { font-size:.875rem; color:var(--txt2); line-height:1.6; }
-.card-footer { 
-  padding:.9rem 1.5rem; 
-  border-top:1px solid var(--line); 
-  display:flex; 
-  justify-content:space-between; 
-  align-items:center;
-  margin-top:auto;
-}    .card-link { font-size:.8rem; color:var(--hi); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:.35rem; transition:gap .2s; }
+    .card-footer {
+      padding:.9rem 1.5rem;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:auto;
+    }
+    .card-link { font-size:.8rem; color:var(--hi); font-weight:600; text-decoration:none; display:flex; align-items:center; gap:.35rem; transition:gap .2s; }
     .card-link:hover { gap:.6rem; }
 
     /* SERVICES */
@@ -256,56 +271,106 @@
     .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
 
-    /* RESPONSIVE */
+    /* =============================================
+       RESPONSIVE — TABLET (≤900px)
+       ============================================= */
     @media (max-width:900px) {
       .nav-links, .nav-cta { display:none; }
       .hamburger { display:flex; }
-      .about-grid { grid-template-columns:1fr; gap:2.5rem; }
-      .about-img-wrap { max-width:220px; margin:0 auto; }
+      .about-top { grid-template-columns:1fr; gap:2rem; }
+      .about-img-wrap { max-width:200px; margin:0 auto; }
+      .about-split { grid-template-columns:1fr; }
       .exp-grid { grid-template-columns:1fr; gap:3rem; }
       .contact-grid { grid-template-columns:1fr; gap:3rem; }
       footer { flex-direction:column; text-align:center; align-items:center; }
     }
+
+    /* =============================================
+       RESPONSIVE — MOBILE (≤600px)
+       ============================================= */
     @media (max-width:600px) {
-      section { padding:4rem 5vw; }
-      #hero { padding:calc(var(--nav-h) + 3rem) 5vw 4rem; }
-      .hero-stats { gap:1.5rem; }
+      section { padding:3.5rem 4vw; }
+      #hero { padding:calc(var(--nav-h) + 2.5rem) 4vw 3.5rem; min-height:100svh; }
+
+      /* ── Hero text — lebih kecil di mobile ── */
+      h1 { font-size: clamp(1.75rem, 9vw, 2.4rem); letter-spacing: -0.03em; }
+      .hero-badge { font-size:.72rem; padding:.28rem .85rem; margin-bottom:1.2rem; }
+      .hero-desc { font-size:.9rem; margin-top:1rem; }
+      .hero-actions { margin-top:1.8rem; gap:.75rem; }
+      .btn-primary, .btn-ghost { padding:.65rem 1.4rem; font-size:.85rem; }
+      .hero-stats { margin-top:2.5rem; gap:1.5rem; }
+      .stat-num { font-size:1.6rem; }
+      .stat-lbl { font-size:.7rem; }
+
+      /* ── About ── */
+      .about-img-wrap { max-width:160px; }
+
+      /* ── Projects — horizontal scroll, 3 cards side by side ── */
+      #projects { padding:3.5rem 0; }
+      #projects > .projects-header { padding:0 4vw; }
+      .projects-header { margin-bottom:1.75rem; }
+
+      /* Hide "All Projects" button on mobile */
+      .projects-header .btn-ghost { display:none; }
+
+      .projects-grid {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 0.85rem;
+        padding: 0 4vw 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: unset;
+      }
+      .projects-grid::-webkit-scrollbar { display:none; }
+
+      .project-card {
+        flex: 0 0 72vw;
+        max-width: 72vw;
+        scroll-snap-align: start;
+      }
+
+      .card-thumb { height: 160px; }
+      .card-body { padding:1rem 1.1rem 1.1rem; }
+      .card-title { font-size:.95rem; }
+      .card-desc { font-size:.8rem; }
+      .card-footer { padding:.75rem 1.1rem; }
+
+      /* ── Services ── */
+      .services-grid { grid-template-columns:1fr; gap:1rem; }
+
+      /* ── CTA — lebih kecil ── */
+      #cta { padding:3rem 4vw; }
+      #cta h2 { font-size:clamp(1.5rem,7vw,2.2rem); }
+      #cta .section-sub { font-size:.85rem; margin-bottom:1.75rem; }
+      .cta-actions { gap:.75rem; }
+      .cta-actions .btn-primary,
+      .cta-actions .btn-ghost { padding:.6rem 1.3rem; font-size:.82rem; }
+
+      /* ── Contact — lebih kecil ── */
+      #contact { padding:3.5rem 4vw; }
+      #contact h2 { font-size:clamp(1.4rem,6vw,2rem); }
+      .contact-info h3 { font-size:1.1rem; }
+      .contact-info p { font-size:.85rem; }
+      .contact-link { font-size:.82rem; padding:.55rem .85rem; }
+      .contact-links { gap:.55rem; margin-top:1.4rem; }
+
+      /* Form */
       .form-row { grid-template-columns:1fr; }
-      .about-img-wrap { max-width:180px; }
+      input, textarea { font-size:.88rem; padding:.65rem .9rem; }
+      textarea { min-height:110px; }
+
+      /* ── Footer ── */
+      footer { padding:2rem 4vw; gap:.75rem; }
     }
-    /* ABOUT — updated layout */
-#about { background: var(--bg2); }
-.about-top { display: grid; grid-template-columns: 220px 1fr; gap: 3.5rem; align-items: start; margin-bottom: 0; }
-.about-img-wrap { position: relative; width: 100%; }
-.about-img-placeholder { width:100%; aspect-ratio:3/4; border-radius:var(--r); background:linear-gradient(145deg,var(--bg3),var(--bg4)); display:flex; align-items:center; justify-content:center; border:1px solid var(--line2); position:relative; overflow:hidden; }
-.about-img-placeholder::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 55% 25%,rgba(26,15,212,.12),transparent 65%); }
-.about-img-placeholder img.profile-img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; border-radius:var(--r); }
-.about-frame { position:absolute; bottom:-10px; right:-10px; width:calc(100% - 20px); height:calc(100% - 20px); border:1.5px solid rgba(61,95,255,.18); border-radius:var(--r); z-index:-1; }
-.about-text p { color:var(--txt2); margin-bottom:.8rem; }
 
-.about-divider { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--line2),transparent); margin:2.5rem 0; }
-
-.about-split { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-.about-skill-card { border-radius:var(--r); border:1px solid var(--line2); padding:1.5rem; position:relative; overflow:hidden; }
-.about-skill-dev { background:linear-gradient(145deg,rgba(26,15,212,.08),rgba(6,6,10,.4)); }
-.about-skill-media { background:linear-gradient(145deg,rgba(61,95,255,.06),rgba(6,6,10,.4)); }
-.ask-accent { position:absolute; top:0; left:0; width:3px; height:100%; border-radius:var(--r) 0 0 var(--r); }
-.about-skill-dev .ask-accent { background:var(--accent); }
-.about-skill-media .ask-accent { background:var(--accent2); }
-.ask-header { display:flex; align-items:center; gap:.65rem; margin-bottom:1rem; }
-.ask-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
-.about-skill-dev .ask-icon { background:rgba(26,15,212,.2); }
-.about-skill-media .ask-icon { background:rgba(61,95,255,.15); }
-.ask-title { font-family:'Syne',sans-serif; font-weight:700; font-size:.95rem; color:var(--txt); }
-.ask-years { font-size:.72rem; color:var(--hi); font-weight:600; letter-spacing:.04em; }
-.ask-desc { font-size:.82rem; color:var(--txt2); line-height:1.65; margin-bottom:1.1rem; }
-.skill-tag.active { border-color:rgba(26,15,212,.35); color:var(--hi); background:rgba(26,15,212,.1); }
-
-@media (max-width:900px) {
-  .about-top { grid-template-columns:1fr; gap:2rem; }
-  .about-img-wrap { max-width:200px; margin:0 auto; }
-  .about-split { grid-template-columns:1fr; }
-}
+    /* Very small screens */
+    @media (max-width:380px) {
+      h1 { font-size: clamp(1.5rem, 10vw, 1.9rem); }
+      .project-card { flex: 0 0 82vw; max-width:82vw; }
+    }
   </style>
 </head>
 <body>
@@ -359,9 +424,7 @@
     </p>
 
     <div class="hero-actions">
-      <a href="#projects" class="btn-primary">
-        View My Work
-        </a>
+      <a href="#projects" class="btn-primary">View My Work</a>
       <a href="#contact" class="btn-ghost">Get In Touch</a>
     </div>
 
@@ -464,63 +527,63 @@
     <a href="https://github.com/Mikee-12?tab=repositories" class="btn-ghost" style="font-size:.85rem;padding:.55rem 1.4rem;">All Projects</a>
   </div>
   <div class="projects-grid">
-<div class="project-card reveal">
-  <div class="card-thumb">
-    <img src="assets/Catdogku.png" alt="CATDOGKU PETCARE" class="card-thumb-image">
-
-  </div>
-
-  <div class="card-body">
-    <div class="card-tags">
-      <span class="card-tag alt">PHP</span>
-      <span class="card-tag">MySQL</span>
-    </div>
-    <div class="card-title">CATDOGKU PETCARE</div>
-    <div class="card-desc">
-      CatDogKu PetCare is a web-based pet care reservation system designed to simplify booking and service management. The platform includes admin and user features, reservation management, and database integration using PHP and MySQL.
-    </div>
-  </div>
-  <div class="card-footer">
-    <a href="https://github.com/Mikee-12/CatDogKu" class="card-link">GitHub</a>
-    <a href="https://catdogku.infinityfreeapp.com/cust_login.php?i=1" class="card-link">Live</a>
-  </div>
-</div>
     <div class="project-card reveal">
-  <div class="card-thumb">
-    <img src="assets/Pokedex.jpeg" alt="Pokedex" class="card-thumb-image"
-         onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#08081a,#0e0e28)'">
-    <div class="card-thumb-overlay"></div>
-  </div>
-  <div class="card-body">git clone https://github.com/Mikee-12/Mikee-12.github.io.git
-    <div class="card-tags">
-      <span class="card-tag alt">Kotlin</span>
-      <span class="card-tag">XML</span>
+      <div class="card-thumb">
+        <img src="assets/Catdogku.png" alt="CATDOGKU PETCARE" class="card-thumb-image">
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag alt">PHP</span>
+          <span class="card-tag">MySQL</span>
+        </div>
+        <div class="card-title">CATDOGKU PETCARE</div>
+        <div class="card-desc">
+          CatDogKu PetCare is a web-based pet care reservation system designed to simplify booking and service management. The platform includes admin and user features, reservation management, and database integration using PHP and MySQL.
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="https://github.com/Mikee-12/CatDogKu" class="card-link">GitHub</a>
+        <a href="https://catdogku.infinityfreeapp.com/cust_login.php?i=1" class="card-link">Live</a>
+      </div>
     </div>
-    <div class="card-title">Pokedex</div>
-    <div class="card-desc">A mobile application that displays information about Pokémon from Gen 1-9 using the PokeAPI.</div>
-  </div>
-  <div class="card-footer">
-    <a href="https://github.com/Mikee-12/PokeDex" class="card-link">GitHub</a>
-  </div>
-</div>
+
     <div class="project-card reveal">
-  <div class="card-thumb">
-    <img src="assets/Laundry.jpeg" alt="Laundry Apps" class="card-thumb-image"
-         onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#0a0a1c,#14143a)'">
-    <div class="card-thumb-overlay"></div>
-  </div>
-  <div class="card-body">
-    <div class="card-tags">
-      <span class="card-tag">Kotlin</span>
-      <span class="card-tag alt">XML</span>
+      <div class="card-thumb">
+        <img src="assets/Pokedex.jpeg" alt="Pokedex" class="card-thumb-image"
+             onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#08081a,#0e0e28)'">
+        <div class="card-thumb-overlay"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag alt">Kotlin</span>
+          <span class="card-tag">XML</span>
+        </div>
+        <div class="card-title">Pokedex</div>
+        <div class="card-desc">A mobile application that displays information about Pokémon from Gen 1-9 using the PokeAPI.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://github.com/Mikee-12/PokeDex" class="card-link">GitHub</a>
+      </div>
     </div>
-    <div class="card-title">Laundry Apps</div>
-    <div class="card-desc">A mobile application for managing laundry services, including booking, tracking, and payment features.</div>
-  </div>
-  <div class="card-footer">
-    <a href="https://github.com/Mikee-12/Laundry" class="card-link">GitHub</a>
-  </div>
-</div>
+
+    <div class="project-card reveal">
+      <div class="card-thumb">
+        <img src="assets/Laundry.jpeg" alt="Laundry Apps" class="card-thumb-image"
+             onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#0a0a1c,#14143a)'">
+        <div class="card-thumb-overlay"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag">Kotlin</span>
+          <span class="card-tag alt">XML</span>
+        </div>
+        <div class="card-title">Laundry Apps</div>
+        <div class="card-desc">A mobile application for managing laundry services, including booking, tracking, and payment features.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://github.com/Mikee-12/Laundry" class="card-link">GitHub</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -637,9 +700,7 @@
     I'm ready to help you turn your idea into a real digital product. Let's discuss and start something amazing.
   </p>
   <div class="cta-actions">
-    <a href="#contact" class="btn-primary">
-      Start a Project
-    </a>
+    <a href="#contact" class="btn-primary">Start a Project</a>
     <a href="https://wa.me/6285624312595" class="btn-ghost">WhatsApp</a>
   </div>
 </section>
@@ -654,10 +715,8 @@
       <p>Have questions or want to discuss a project? Send me a message and I'll reply within 24 hours.</p>
       <div class="contact-links">
         <a href="mailto:michaelkusuma133@gmail.com"
-   onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=michaelkusuma133@gmail.com','_blank')"
-   class="contact-link">
-  Gmail
-</a>
+           onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=michaelkusuma133@gmail.com','_blank')"
+           class="contact-link">Gmail</a>
         <a href="https://wa.me/6285624312595" class="contact-link">WhatsApp</a>
         <a href="https://github.com/Mikee-12" class="contact-link">GitHub</a>
       </div>
@@ -665,7 +724,7 @@
     <form class="contact-form reveal" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group">
-          <label>Name </label>
+          <label>Name</label>
           <input type="text" placeholder="Example Name" required/>
         </div>
         <div class="form-group">
@@ -682,7 +741,8 @@
         <textarea placeholder="Tell me about your project..." required></textarea>
       </div>
       <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
-        Send Message</button>
+        Send Message
+      </button>
     </form>
   </div>
 </section>
@@ -691,28 +751,24 @@
   <div class="footer-logo">Mike<span>.</span></div>
   <div class="footer-copy">© 2026 Mike. All rights reserved.</div>
   <div class="footer-socials">
-
     <!-- GitHub -->
     <a href="https://github.com/Mikee-12" title="GitHub">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
       </svg>
     </a>
-
     <!-- Instagram -->
     <a href="https://www.instagram.com/4262.mkiem" title="Instagram">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.516 2.497 5.783 2.226 7.149 2.163 8.415 2.105 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.013 8.332 0 8.741 0 12c0 3.259.013 3.668.072 4.948.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.987 8.741 24 12 24c3.259 0 3.668-.013 4.948-.072 1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.059-1.28.072-1.689.072-4.948 0-3.259-.013-3.668-.072-4.948-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
       </svg>
     </a>
-
     <!-- WhatsApp -->
     <a href="https://wa.me/6285624312595" title="WhatsApp">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </svg>
     </a>
-
   </div>
 </footer>
 
@@ -759,35 +815,27 @@
   });
 
   function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const name    = form.querySelector('input[type="text"]').value;
-  const email   = form.querySelector('input[type="email"]').value;
-  const subject = form.querySelectorAll('input[type="text"]')[1].value;
-  const message = form.querySelector('textarea').value;
+    e.preventDefault();
+    const form = e.target;
+    const name    = form.querySelector('input[type="text"]').value;
+    const email   = form.querySelector('input[type="email"]').value;
+    const subject = form.querySelectorAll('input[type="text"]')[1].value;
+    const message = form.querySelector('textarea').value;
 
-  const text = `Hi Mike, I contacted through the portfolio website.
+    const text = `Hi Mike, I contacted through the portfolio website.\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n\n*Pesan:*\n${message}`;
+    const waUrl = `https://wa.me/6285624312595?text=${encodeURIComponent(text)}`;
 
-*Name:* ${name}
-*Email:* ${email}
-*Subject:* ${subject}
+    const btn = form.querySelector('button[type=submit]');
+    btn.textContent = '✓ Redirecting to WhatsApp...';
+    btn.style.background = '#2518e8';
 
-*Pesan:*
-${message}`;
-
-  const waUrl = `https://wa.me/6285624312595?text=${encodeURIComponent(text)}`;
-
-  const btn = form.querySelector('button[type=submit]');
-  btn.textContent = '✓ Redirecting to WhatsApp...';
-  btn.style.background = '#2518e8';
-
-  setTimeout(() => {
-    window.open(waUrl, '_blank');
-    btn.textContent = 'Send Message';
-    btn.style.background = '';
-    form.reset();
-  }, 800);
-}
+    setTimeout(() => {
+      window.open(waUrl, '_blank');
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      form.reset();
+    }, 800);
+  }
 
   function animateCounter(el, target) {
     let start = 0;
